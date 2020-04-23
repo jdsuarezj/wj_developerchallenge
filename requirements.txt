@@ -1,0 +1,4 @@
+Django
+Unipath
+python-decouple
+aylien-apiclient

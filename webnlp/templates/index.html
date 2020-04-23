@@ -1,0 +1,109 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} NLP Test {% endblock %}
+
+{% block content %}
+
+<!-- Index view, with layout -->
+<div class="row">
+  <div class="col-md-10 offset-md-1">
+    <div class="card card-chart">
+      <div class="card-header">
+        <div class="row">
+          <!-- Presentation -->
+          <div class="col-md-12 text-center">            
+            <h4>Natural Language Processing, or NLP, is the sub-field of AI that is focused on
+              enabling computers to understand and process human languages.</h4>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <!-- What is AYLIEN -->
+          <div class="col-md-10 offset-md-1">
+            The <b>AYLIEN Text Analysis API</b> allows you to extract value from a wide range of documents and
+            publications with
+            ease.
+            How it works: The API leverages the power of natural language processing to mine meaning and insights from
+            documents. It performs document-level, aspect-based, and entity-level sentiment analysis for understanding
+            human-produced textual content.
+            <br><br>
+            API features: The AYLIEN Text Analysis API has extensive functionalities to assist developers in deriving
+            useful value from textual data — including sentiment, summaries, categories, and entities. AYLIEN also has a
+            News API for analyzing thousands of streams of news content and Text Analysis Platform API for creating
+            customized natural language processing models quickly. It supports seven different languages. <i>WRITTEN BY:
+              Jed Ng</i>
+            <br><br>
+
+          </div>
+        </div>
+        <div class="col-md-10 offset-md-1 text-center">
+          <h3><b>You can test the power of NLP, copy a news link and paste it below, and get ready to see the magic!</b></h3>
+          <i>Example: https://techcrunch.com/2019/12/22/who-will-the-winners-be-in-the-future-of-fintech/</i>
+        </div>
+        <div class="col-md-8 offset-md-2">
+          <!-- Form to capture the url  -->
+          <form role="form" method="post" action="">
+
+            {% csrf_token %}
+
+            <div class="card-body text-center">
+
+              {{ form.urlInput }}
+
+            </div>
+            <!-- Button for submit form, request the API and redirect to Scan view  -->
+            <div class="card-footer text-center">
+              <button type="submit" class="btn btn-fill btn-primary">SCAN</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Experts reviews about NLP  -->
+<div class="row">
+  <div class="col-md-6">
+    <div class="card-group">      
+      <div class="card-body-group">
+        <h3 class="card-title">Can Computers Understand Language?</h3>
+        As long as computers have been around, programmers have been trying to write programs that understand
+        languages
+        like English. The reason is pretty obvious — humans have been writing things down for thousands of years
+        and
+        it
+        would be really helpful if a computer could read and understand all that data. Computers can’t yet truly
+        understand English in the way that humans do — but they can already do a lot! In certain limited areas,
+        what
+        you can do with NLP already seems like magic. You might be able to save a lot of time by applying NLP
+        techniques to your own projects.
+      </div>
+      <div class="card-footer">
+        <i>WRITTEN BY: Adam Geitgey</i>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card-group">
+      <div class="card-body-group">
+        <h3 class="card-title">Use Cases of NLP</h3>
+        In simple terms, NLP represents the automatic handling of natural human language like speech or text,
+        and
+        although the concept itself is fascinating, the real value behind this technology comes from the use
+        cases.
+        NLP can help you with lots of tasks and the fields of application just seem to increase on a daily
+        basis.
+        Let’s mention some examples: <b>prediction of diseases</b>, <b>sentiment analysis</b>, <b>cognitive
+          assistant</b>, <b>stopping spam</b>, <b>identify fake news</b>, <b>voice driven interfaces</b>,
+        <b>financial traders</b>, <b>talent recruitment</b> and <b>litigation tasks</b>
+      </div>
+      <div class="card-footer">
+        <i>WRITTEN BY: ODSC - Open Data Science</i>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

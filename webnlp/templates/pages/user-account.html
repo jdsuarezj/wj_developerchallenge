@@ -1,0 +1,76 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Page User {% endblock %} 
+
+{% block content %}
+<!-- Fake user account view -->
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <div class="card text-center">
+      <div class="card-header">
+        <h1 class="title">My account</h1>
+      </div>
+      <div class="card-body">
+        <form>
+          <div class="row">          
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Username</label>
+                <input type="text" class="form-control" value="{{ request.user.username }}">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" value="{{ request.user.email }}">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 pr-md-1">
+              <div class="form-group">
+                <label>First Name</label>
+                <input type="text" class="form-control">
+              </div>
+            </div>
+            <div class="col-md-6 pl-md-1">
+              <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 offset-md-3">
+              <div class="form-group">
+                <label>Address</label>
+                <input type="text" class="form-control" placeholder="Address" >
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 pr-md-1">
+              <div class="form-group">
+                <label>City</label>
+                <input type="text" class="form-control" placeholder="City" >
+              </div>
+            </div>
+            <div class="col-md-6 px-md-1">
+              <div class="form-group">
+                <label>Country</label>
+                <input type="text" class="form-control" placeholder="Country" >
+              </div>
+            </div>           
+          </div>          
+        </form>
+      </div>
+      <!-- Button without function -->
+      <div class="card-footer">
+        <button type="submit" class="btn btn-fill btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock content %}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>
+    {% block title %} Login {% endblock %}
+  </title>
+  <!-- fonts -->
+  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+  <!-- css -->
+  <link href="{% static 'assets/css/webnlp.css' %}" rel="stylesheet" />
+ 
+</head>
+
+<!-- Login view, without layout -->
+<body>
+  <div class="wrapper">
+    <div class="main-panel">
+      <div class="content">
+
+        {% block content %}
+
+        <div class="row">
+          <div class="col-md-4 offset-md-4">
+            <div class="card text-center">
+              <form role="form" method="post" action="">
+
+                {% csrf_token %}
+
+                <div class="card-header">
+                  <h1 class="title">NLP Test</h1>
+                  <h4><b>Welcome,</b>
+                    <p>Sign in to continue!</p>
+                  </h4>
+                </div>
+
+                <div class="card-body">
+                  <div class="row ">
+                    <div class="col-md-12 px-md-1">
+                      <div class="form-group">
+                        <label>Username</label>
+                        {{ form.username }}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-12 px-md-1">
+                      <div class="form-group">
+                        <label>Password</label>
+                        {{ form.password }}
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="card-footer">
+                  <button href="/" type="" name="login" class="btn btn-fill btn-primary">Login</button>
+                  <br>
+                  I'm a new user. <a href="{% url 'signup' %}" class="text-primary">Sign up</a>
+                </div>
+
+              </form>
+
+            </div>
+          </div>
+        </div>
+
+        {% endblock content %}
+
+      </div>
+
+    </div>
+
+  </div>
+
+  {% include 'includes/scripts.html' %}
+
+</body>
+</html>

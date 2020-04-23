@@ -1,0 +1,150 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} SCAN {% endblock %}
+
+<!-- Scan view, with layout -->
+{% block content %}
+<div class="row">
+    <div class="col-md-10">
+        <!-- Sentiments card -->
+        <div class="card-group">            
+            <div class="card-body-group">
+                <h3 class="card-title">
+                    Sentiments
+                </h3>
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="card ">
+                            <div class="card-body result">
+                                Polarity: <b>{{ polarity }}</b>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="card ">
+                            <div class="card-body result">
+                                Subjectivity: <b>{{ subjectivity }}</b>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card ">
+                            <div class="card-body result">
+                                Polarity confidence: <b>{{ polarity_confidence }} %</b>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card ">
+                            <div class="card-body result">
+                                Subjectivity confidence: <b>{{ subjectivity_confidence }} %</b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Entities card -->
+        <div class="card-group">
+            <div class="card-body-group">
+                <h3 class="card-title">
+                    Entities
+                </h3>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="card ">
+                            <div class="card-body result">
+                                Organizations:
+                                {% for i in entities.organization %}
+                                {{ i }},
+                                    {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card ">
+                            <div class="card-body result">
+                                Locations:
+                                {% for i in entities.location %}
+                                {{ i }},
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card ">
+                            <div class="card-body result">
+                                Keywords: 
+                                {% for i in entities.keyword %}
+                                 {{ i }},
+                                {% endfor %}                                 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card ">
+                            <div class="card-body result">
+                                Persons :
+                                {% for i in entities.person %}
+                                 {{ i }},
+                                {% endfor %}                                   
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Summarize card -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card ">
+                    <div class="card-body">
+                        <h3 class="card-title">
+                            Summarize
+                        </h3>
+                        {% for i in summarize %}
+                        {{ i }}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Text card -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card ">
+                    <div class="card-body">
+                        <h3 class="card-title">
+                            Extracted text
+                        </h3>
+                        {{ text }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Concepts table -->
+    <div class="col-md-2">
+        <h3 class="card-title">
+            Concepts
+        </h3>
+        <table class="table">
+            <thead class="text-primary">
+                <tr>
+                    <th scope="col">Words</th>
+                    <th scope="col">Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in concepts %}
+                <tr>
+                    <th scope="row">{{ i.surfaceForms.0.string }}</th>
+                    <th scope="row">{{ i.surfaceForms.0.score }}</th>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock content %}

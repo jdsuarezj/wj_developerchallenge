@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>
+    {% block title %} Sign up {% endblock %}
+  </title>
+  <!-- fonts -->
+  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+  <!-- css -->
+  <link href="{% static 'assets/css/webnlp.css' %}" rel="stylesheet" />
+ 
+</head>
+<!-- Singup view, without layout -->
+<body>
+  <div class="wrapper">
+    <div class="main-panel">
+      <div class="content">
+
+        {% block content %}
+
+        <div class="row">
+          <div class="col-md-4 offset-md-4">
+            <div class="card text-center">
+
+              <form role="form" method="post" action="">
+
+                {% csrf_token %}
+
+                <div class="card-header">
+                  <h1 class="title">NLP Test</h1>
+                  <h4><b>Create Account,</b>
+                    <p>Sign up to get started!</p>
+                  </h4>
+                </div>
+                <div class="card-body">
+
+                  <div class="row">
+                    <div class="col-md-12 px-md-1">
+                      <div class="form-group">
+                        <label>Username</label>
+                        {{ form.username }}
+                      </div>
+                    </div>
+                  </div>
+                  <span class="text-danger">{{ form.username.errors }}</span>
+
+                  <div class="row">
+                    <div class="col-md-12 px-md-1">
+                      <div class="form-group">
+                        <label>Email</label>
+                        {{ form.email }}
+                      </div>
+                    </div>
+                  </div>
+                  <span class="text-danger">{{ form.email.errors }}</span>
+
+                  <div class="row">
+                    <div class="col-md-12 px-md-1">
+                      <div class="form-group">
+                        <label>Password</label>
+                        {{ form.password1 }}
+                      </div>
+                    </div>
+                  </div>
+                  <span class="text-danger">{{ form.password1.errors }}</span>
+
+                  <div class="row">
+                    <div class="col-md-12 px-md-1">
+                      <div class="form-group">
+                        <label>Password Check</label>
+                        {{ form.password2 }}
+                      </div>
+                    </div>
+                  </div>
+                  <span class="text-danger">{{ form.password2.errors }}</span>
+
+                </div>
+
+                <div class="card-footer">
+                  <button type="submit" name="register" class="btn btn-fill btn-primary">Sign up</button>
+                  <br>
+                  I'm already a member. <a href="{% url 'login' %}" class="text-primary">Login</a>
+                </div>
+
+              </form>
+
+            </div>
+          </div>
+        </div>
+
+
+        {% endblock content %}
+
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+
+</html>
