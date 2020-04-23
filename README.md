@@ -2,7 +2,7 @@
 
 Full stack Developer challenge.
 
-I was creating an intuitive and practical web application to analyze a news or news article only with its URL.
+I created an intuitive and practical web application to analyze a news or news article only with its URL.
 
 Aylien's power was used for this application, for more information [here.](https://docs.aylien.com/)
 
